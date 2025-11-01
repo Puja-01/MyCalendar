@@ -9,7 +9,13 @@ dotenv.config();
 const app = express();
 
 // Middlewares
-app.use(cors());
+
+app.use(cors({
+  origin: ["https://your-frontend.onrender.com"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json()); // parse application/json
 
 // Connect DB
